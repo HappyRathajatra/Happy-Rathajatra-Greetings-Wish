@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rath Yatra Greetings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Oriya:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #6A0DAD; 
+            --secondary-color: #FFD700; 
+            --accent-color: #DAA520; 
+            --text-color: #FFFFFF;
+            --background-color: #1E0E2F; 
+            
+            --glass-bg: rgba(255, 255, 255, 0.08); 
+            --glass-border: rgba(255, 255, 255, 0.15); 
+            
+            --neon-glow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--primary-color), 0 0 20px var(--primary-color), 0 0 25px var(--primary-color), 0 0 30px var(--primary-color), 0 0 35px var(--primary-color);
+
+            --original-saffron: #FF9933;
+            --original-gold-mid: #FFC300;
+            --original-green: #138808;
+            --original-saffron-shadow-main: rgba(255, 153, 51, 0.5);
+            --original-saffron-shadow-sub: rgba(255, 153, 51, 0.35);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Oriya', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(106, 13, 173, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.2) 0%, transparent 50%);
+        }
+
+        .container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px 25px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+                        0 0 20px 0 rgba(106, 13, 173, 0.45); 
+            border: 1px solid var(--glass-border);
+            animation: fadeInPage 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInPage {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #header-gif {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 2px solid var(--primary-color); 
+            box-shadow: 0 0 15px var(--primary-color); 
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #main-greeting {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            background: linear-gradient(45deg, var(--original-saffron), var(--original-gold-mid), var(--original-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-shadow: 0 0 8px var(--original-saffron-shadow-main);
+            animation: fadeInText 1.5s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        #sub-greeting {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-top: 0px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            text-shadow: 0 0 5px var(--original-saffron-shadow-sub);
+            animation: fadeInText 1.8s ease-out 0.8s forwards;
+            opacity: 0;
+            padding: 0 10px;
+        }
+
+        #sub-greeting .gradient-part {
+            background: linear-gradient(45deg, var(--original-saffron), var(--original-gold-mid), var(--original-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        #sub-greeting .emoji-part { }
+
+
+        @media (max-width: 480px) {
+            #main-greeting { font-size: 1.8rem; }
+            #sub-greeting { font-size: 1.05rem; margin-bottom: 25px; }
+            .container { padding: 25px 20px; }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #name-input {
+            width: calc(100% - 40px);
+            padding: 14px 18px;
+            margin-bottom: 25px;
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1); 
+            color: var(--text-color); 
+            font-size: 1.1rem;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #name-input::placeholder { color: rgba(255, 255, 255, 0.6); }
+
+        #name-input:focus {
+            border-color: var(--primary-color); 
+            box-shadow: 0 0 10px var(--primary-color); 
+        }
+
+        .styled-button {
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color); 
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease, outline-color 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+
+        .styled-button:hover {
+            transform: scale(1.05);
+            box-shadow: var(--neon-glow); 
+            outline-color: var(--primary-color); 
+        }
+
+        .styled-button:active { transform: scale(0.98); }
+
+        #generate-btn { margin-bottom: 15px; } 
+
+        #custom-greeting-container {
+            margin-top: 15px; 
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            animation: popIn 0.5s ease-out;
+            white-space: pre-wrap; 
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        #custom-greeting-text {
+            margin-bottom: 20px; 
+            line-height: 1.6;
+            color: #FFF; 
+        }
+
+        #whatsapp-share-btn {
+            background: #25D366; 
+            color: white;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        #whatsapp-share-btn i { font-size: 1.3rem; }
+
+        #whatsapp-share-btn:hover {
+            box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #25D366, 0 0 20px #25D366;
+            outline-color: #25D366;
+        }
+
+        .audio-controls {
+            margin-top: 10px; 
+            margin-bottom: 10px; 
+            display: flex;
+            justify-content: flex-end; 
+        }
+
+        #mute-toggle-btn {
+            background: var(--glass-bg);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--glass-border);
+            color: var(--text-color); 
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        #mute-toggle-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="giphy.gif" alt="Happy Rath Yatra GIF" id="header-gif">
+
+        <h1 id="main-greeting">ପବିତ୍ର ରଥ ଯାତ୍ରାର ଶୁଭେଚ୍ଛା ଓ ଶୁଭକାମନା</h1>
+        <p id="sub-greeting">
+            <span class="gradient-part">ପ୍ରଭୁ ଜଗନ୍ନାଥଙ୍କ ପ୍ରେମ ଏବଂ କରୁଣାର ରଥ ଆପଣଙ୍କ ଜୀବନରେ ଶାନ୍ତି ଏବଂ ଖୁସି ଆଣିଦେଉ। ଜୟ ଜଗନ୍ନାଥ </span><span class="emoji-part">⭕❗⭕</span>
+        </p>
+
+
+        <input type="text" id="name-input" placeholder="Enter your name">
+
+        <button id="generate-btn" class="styled-button">Create & share Rath Yatra Wish</button>
+        
+        <div class="audio-controls">
+            <audio id="bg-music" src="Mo-Jaga-Kalia-(OdiaFresh.Com).mp3" loop></audio>
+            <button id="mute-toggle-btn"><i class="fas fa-volume-up"></i></button>
+        </div>
+
+        <div id="custom-greeting-container" style="display:none;">
+            <div id="custom-greeting-text"></div> 
+            <button id="whatsapp-share-btn" class="styled-button" style="display:none;">
+                <i class="fab fa-whatsapp"></i> Share on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const nameInput = document.getElementById('name-input');
+        const generateBtn = document.getElementById('generate-btn');
+        const customGreetingContainer = document.getElementById('custom-greeting-container');
+        const customGreetingTextElem = document.getElementById('custom-greeting-text');
+        const whatsappShareBtn = document.getElementById('whatsapp-share-btn');
+
+        const bgMusic = document.getElementById('bg-music');
+        const muteToggleBtn = document.getElementById('mute-toggle-btn');
+        const muteIcon = muteToggleBtn.querySelector('i');
+
+        let userPreferenceMuted = localStorage.getItem('musicMuted') === 'true';
+        let hasInteracted = false;
+        let currentCardOwnerName = ""; 
+
+        function updateMuteButtonIcon() {
+            if (bgMusic.muted) {
+                muteIcon.classList.remove('fa-volume-up');
+                muteIcon.classList.add('fa-volume-mute');
+            } else {
+                muteIcon.classList.remove('fa-volume-mute');
+                muteIcon.classList.add('fa-volume-up');
+            }
+        }
+
+        async function attemptInitialMutedPlayback() {
+            console.log("Attempting initial muted playback with file:", bgMusic.src);
+            bgMusic.volume = 0.5;
+            bgMusic.muted = true;
+            updateMuteButtonIcon();
+
+            try {
+                await bgMusic.play();
+                console.log("Initial muted play() successful.");
+            } catch (error) {
+                console.warn("Initial muted play() failed. This is common before user interaction.", error.name, error.message);
+            }
+        }
+
+        async function handleFirstUserInteraction() {
+            if (hasInteracted) return;
+            hasInteracted = true;
+            console.log("First user interaction. UserPreferenceMuted:", userPreferenceMuted);
+            
+            bgMusic.muted = userPreferenceMuted; 
+            
+            if (!userPreferenceMuted) {
+                try {
+                    if (bgMusic.paused) {
+                        await bgMusic.play(); 
+                    }
+                    if (bgMusic.muted) bgMusic.muted = false; 
+                    console.log("Play() successful post-interaction, sound should be on if preferred.");
+                } catch (error) {
+                    console.warn("Play() post-interaction (with sound) failed:", error.name, error.message);
+                    bgMusic.muted = true;
+                }
+            } else { 
+                if (bgMusic.paused) {
+                    try { 
+                        bgMusic.muted = true;
+                        await bgMusic.play(); 
+                        console.log("Played muted audio (was paused).");
+                    } catch (e) { 
+                        console.warn("Failed to play paused muted audio:", e);
+                    }
+                } else {
+                    bgMusic.muted = true;
+                }
+            }
+            updateMuteButtonIcon();
+        }
+
+        ['click', 'touchstart', 'keydown'].forEach(eventType => {
+            document.addEventListener(eventType, handleFirstUserInteraction, { capture: true, once: true });
+        });
+
+        muteToggleBtn.addEventListener('click', async () => {
+            if (!hasInteracted) await handleFirstUserInteraction(); 
+            
+            userPreferenceMuted = !bgMusic.muted; 
+            localStorage.setItem('musicMuted', userPreferenceMuted.toString());
+            bgMusic.muted = userPreferenceMuted;
+            console.log("Mute toggled. User Preference Muted:", userPreferenceMuted, "Audio Element Muted:", bgMusic.muted);
+
+            if (!userPreferenceMuted && bgMusic.paused) { 
+                try {
+                    await bgMusic.play();
+                    console.log("Play successful after unmute.");
+                } catch (error) {
+                    console.warn("Play after unmute failed:", error.name, error.message);
+                    userPreferenceMuted = true; 
+                    localStorage.setItem('musicMuted', 'true');
+                    bgMusic.muted = true;
+                }
+            }
+            updateMuteButtonIcon();
+        });
+
+        function generateGreetingMessage(name, forShare = false) {
+            let line1Base = `ରଥଯାତ୍ରାର ଏହି ପବିତ୍ର ଅବସରରେ ପ୍ରଭୁ ଜଗନ୍ନାଥ ଆପଣଙ୍କୁ ସୁଖ, ଶାନ୍ତି ଏବଂ ସମୃଦ୍ଧି ପ୍ରଦାନ କରନ୍ତୁ ।`;
+            let line2Base = `ଆସନ୍ତୁ ରଥଯାତ୍ରାର ଏହି ପବିତ୍ର ଅବସରରେ ପ୍ରଭୁ ଜଗନ୍ନାଥଙ୍କ ମହିମା ଏବଂ ମହିମ ପାଳନ କରିବା ।`;
+            let line3BaseEmojisContent = `ତୁମ ଏବଂ ତୁମର ପରିବାରକୁ ରଥଯାତ୍ରାର ହାର୍ଦିକ ଶୁଭେଚ୍ଛା ଓ ଶୁଭକାମନା 🙏🙏 ⭕❗⭕ ଜୟ ଜଗନ୍ନାଥ`;
+
+            if (forShare) {
+                return `${line3BaseEmojisContent}\n\n${line1Base}\n\n${line2Base}`;
+            } else {
+                const line3PersonalizedForPage = `ତୁମ ଏବଂ ତୁମର ପରିବାରକୁ ରଥଯାତ୍ରାର ହାର୍ଦିକ ଶୁଭେଚ୍ଛା ଓ ଶୁଭକାମନା from ${name}!  ଜୟ ଜଗନ୍ନାଥ ⭕❗⭕`;
+                const line5Blessing = `ପ୍ରଭୁ ଜଗନ୍ନାଥଙ୍କ ପ୍ରେମ ଏବଂ କରୁଣାର ରଥ ଆପଣଙ୍କ ଜୀବନରେ ଶାନ୍ତି ଏବଂ ଖୁସି ଆଣିଦେଉ।`;
+                return `${line1Base}\n${line2Base}\n${line3PersonalizedForPage}\nWishing you a blessed Rath Yatra!\n${line5Blessing}`;
+            }
+        }
+
+        function shareToWhatsApp(nameToShare) {
+            if (!nameToShare) {
+                alert("Cannot share: Name is missing. / ନାମ ନଥିଲେ ସେୟାର୍ କରାଯାଇପାରିବ ନାହିଁ।");
+                nameInput.focus();
+                return;
+            }
+            const shareIntro = `${nameToShare} ତୁମକୁ ପବିତ୍ର ରଥ ଯାତ୍ରାର ଶୁଭେଚ୍ଛା ପଠାଇଛନ୍ତି! 🙏`;
+            const coreGreetingForWhatsApp = generateGreetingMessage(nameToShare, true); 
+            
+            const ctaLine1 = `💁‍♂️ Message ଦେଖିବା ପାଇଁ ଏବଂ ନିଜର ସ୍ୱତନ୍ତ୍ର greeting card ବନେଇବା ପାଇଁ ତଳେ click କରନ୍ତୁ!`;
+            const ctaLine2 = `👇👇👇`;
+            const shareCallToAction = `${ctaLine1}\n${ctaLine2}`; 
+            
+            const siteRootUrl = window.location.origin + window.location.pathname;
+            const personalizedLinkForShare = `${siteRootUrl}?from=${encodeURIComponent(nameToShare)}`;
+            
+            const finalWhatsAppMessage = 
+                `${shareIntro}\n\n` + 
+                `${coreGreetingForWhatsApp}\n\n` + 
+                `${shareCallToAction}\n\n` + 
+                `${personalizedLinkForShare}`;
+            
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(finalWhatsAppMessage)}`;
+            
+            console.log("Opening WhatsApp with message:", finalWhatsAppMessage);
+            window.open(whatsappUrl, '_blank');
+            console.log("WhatsApp window.open initiated.");
+        }
+
+        window.addEventListener('load', () => {
+            console.log("Page loaded.");
+            attemptInitialMutedPlayback(); 
+            updateMuteButtonIcon(); 
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const fromNameParam = urlParams.get('from');
+            const mainGreetingElem = document.getElementById('main-greeting');
+            const subGreetingElem = document.getElementById('sub-greeting');
+
+            if (fromNameParam) {
+                const decodedFromName = decodeURIComponent(fromNameParam);
+                currentCardOwnerName = decodedFromName; 
+                
+                if (mainGreetingElem) {
+                    mainGreetingElem.innerHTML = `${decodedFromName}ଙ୍କ ଠାରୁ <br> ପବିତ୍ର ରଥ ଯାତ୍ରାର ଶୁଭେଚ୍ଛା ଓ ଶୁଭକାମନା`;
+                }
+                if (subGreetingElem) {
+                    // Display the default sub-greeting along with the call to action to create their own.
+                    subGreetingElem.innerHTML = 
+                        `<span class="gradient-part">ପ୍ରଭୁ ଜଗନ୍ନାଥଙ୍କ ପ୍ରେମ ଏବଂ କରୁଣାର ରଥ ଆପଣଙ୍କ ଜୀବନରେ ଶାନ୍ତି ଏବଂ ଖୁସି ଆଣିଦେଉ। ଜୟ ଜଗନ୍ନାଥ </span><span class="emoji-part">⭕❗⭕</span>` +
+                        `<br><br><p style="font-size: 0.9em; color: #cccccc; margin-top:10px;">ଆପଣ ମଧ୍ୟ ନିଜ ନାମରେ ଶୁଭେଚ୍ଛା ପଠେଇ ପାରିବେ।</p>`;
+                }
+
+                customGreetingContainer.style.display = 'none'; 
+                nameInput.placeholder = "ନିଜ ନାମ ଲେଖି ଶୁଭେଚ୍ଛା ପଠାନ୍ତୁ";
+            } else {
+                // Restore default greetings if no 'from' parameter
+                if (mainGreetingElem) {
+                    mainGreetingElem.innerHTML = `ପବିତ୍ର ରଥ ଯାତ୍ରାର ଶୁଭେଚ୍ଛା ଓ ଶୁଭକାମନା`;
+                }
+                if (subGreetingElem) {
+                     subGreetingElem.innerHTML = `<span class="gradient-part">ପ୍ରଭୁ ଜଗନ୍ନାଥଙ୍କ ପ୍ରେମ ଏବଂ କରୁଣାର ରଥ ଆପଣଙ୍କ ଜୀବନରେ ଶାନ୍ତି ଏବଂ ଖୁସି ଆଣିଦେଉ। ଜୟ ଜଗନ୍ନାଥ </span><span class="emoji-part">⭕❗⭕</span>`;
+                }
+                nameInput.placeholder = "ଆପଣଙ୍କ ନାମ ଲେଖନ୍ତୁ";
+            }
+        });
+
+        generateBtn.addEventListener('click', () => {
+            const name = nameInput.value.trim();
+            if (name === "") {
+                alert("Please enter your name! / ଦୟାକରି ଆପଣଙ୍କ ନାମ ଲେଖନ୍ତୁ!");
+                nameInput.focus();
+                return;
+            }
+            currentCardOwnerName = name; 
+
+            shareToWhatsApp(currentCardOwnerName);
+
+            if (!hasInteracted) {
+                handleFirstUserInteraction(); 
+            }
+        });
+
+        whatsappShareBtn.addEventListener('click', () => { 
+            if (!hasInteracted) {
+                handleFirstUserInteraction();
+            }
+            
+            if (!currentCardOwnerName) {
+                const name = nameInput.value.trim();
+                if (name === "") {
+                    alert("Please enter your name first! / ଦୟାକରି ପ୍ରଥମେ ଆପଣଙ୍କ ନାମ ଲେଖନ୍ତୁ!");
+                    nameInput.focus();
+                    return;
+                }
+                currentCardOwnerName = name;
+            }
+            shareToWhatsApp(currentCardOwnerName); 
+        });
+    </script>
+</body>
+</html>
